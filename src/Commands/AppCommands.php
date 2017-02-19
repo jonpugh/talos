@@ -20,5 +20,14 @@ class AppCommands extends Commands {
     $this->getAnswer($description, 'Description: ');
     
     $this->say("Adding $name with $repository_url and $description");
+    
+    $app = [
+      'name' => $name,
+      'description' => $description,
+      'repo' => $repository_url,
+    ];
+    
+    $this->getConfig()->add('apps', $name, $app);
+    $this->getConfig()->save();
   }
 }

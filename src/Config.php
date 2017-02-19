@@ -225,16 +225,16 @@ class Config implements ConfigurationInterface
         $fs = new Filesystem();
         $dumper = new Dumper();
 
-        if (!$fs->exists(getenv('HOME').'/.terra')) {
+        if (!$fs->exists(getenv('HOME').'/.talos')) {
             try {
-                $fs->mkdir(getenv('HOME').'/.terra/apps');
+                $fs->mkdir(getenv('HOME').'/.talos/apps');
             } catch (IOExceptionInterface $e) {
                 return false;
             }
         }
 
         try {
-            $fs->dumpFile(getenv('HOME').'/.terra/terra', $dumper->dump($this->config, 10));
+            $fs->dumpFile(getenv('HOME').'/.talos/talos.yml', $dumper->dump($this->config, 10));
 
             return true;
         } catch (IOExceptionInterface $e) {
