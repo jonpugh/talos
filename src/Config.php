@@ -41,7 +41,7 @@ class Config implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $tree_builder = new TreeBuilder();
-        $root_node = $tree_builder->root('project');
+        $root_node = $tree_builder->root('talos');
         $root_node
         ->children()
         ->scalarNode('git')
